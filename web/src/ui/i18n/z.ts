@@ -14,6 +14,7 @@ export const languages = [
     "nl",
     "it",
     "es",
+    "sl",
     "de"
 ] as const;
 
