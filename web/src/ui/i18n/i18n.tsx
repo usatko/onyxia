@@ -34,6 +34,7 @@ export const {
         fi: () => import("./resources/fi").then(({ translations }) => translations),
         nl: () => import("./resources/nl").then(({ translations }) => translations),
         it: () => import("./resources/it").then(({ translations }) => translations),
+        sl: () => import("./resources/sl-SI").then(({ translations }) => translations),
         es: () => import("./resources/es").then(({ translations }) => translations),
         de: () => import("./resources/de").then(({ translations }) => translations)
     }
@@ -63,6 +64,7 @@ export const languagesPrettyPrint: Record<Language, string> = objectFromEntries(
         es: "Español",
         nl: "Dutch (Nederlands)",
         no: "Norsk",
+        sl: "Slovenian (Slovenia)",
         fi: "Suomi",
         "zh-CN": "简体中文"
         /* spell-checker: enable */

@@ -134,6 +134,22 @@ const { useI18n, ofTypeI18n } = i18nBuilder
             doRegister: "Opprett konto",
             tabTitleSuffix: "Logg inn"
         },
+        // @ts-ignore: sl is not yet in keycloakify's types
+        sl: {
+            lowerCaseAlphanumericalCharsOnly: "Dovoljene so le male alfanumerične znake",
+            "allowed email domains": "Dovoljene domene",
+            "this email domain is not allowed": "Ta e-poštna domena ni dovoljena",
+            "minimum length": "Najmanjša dolžina: {0}",
+            "must be different from username": "Geslo ne sme biti enako uporabniškemu imenu",
+            "password mismatch": "Gesli se ne ujemata",
+            "go back": "Pojdi nazaj",
+            "form not filled properly yet":
+                "Prosimo, prepričajte se, da je obrazec pravilno izpolnjen",
+            "must respect the pattern": "Mora ustrezati vzorcu",
+            or: "ali",
+            doRegister: "Ustvari račun",
+            tabTitleSuffix: "Prijava"
+        },
         "zh-CN": {
             lowerCaseAlphanumericalCharsOnly: "仅小写字母和数字",
             "allowed email domains": "允许的电子邮件域",
