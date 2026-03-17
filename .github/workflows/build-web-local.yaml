@@ -1,0 +1,72 @@
+name: Build and Push Custom Overleaf Image
+
+on:
+  push:
+    branches:
+      - main
+      - add-slovenian-translation 
+    # Only trigger if the Dockerfile actually changes, saving build minutes
+    paths:
+      - 'web/Dockerfile'
+      - '.github/workflows/build-web-local.yaml'
+    # Trigger when you push a version tag (e.g., git tag v1.0.0 && git push --tags)
+    tags:
+      - 'v*.*.*' 
+  # Allow triggering the build manually from the GitHub UI
+  workflow_dispatch: 
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    
+    # These permissions are required for the action to push to GHCR using the automatic token
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry (GHCR)
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          # GITHUB_TOKEN is automatically provided by GitHub Actions; you do not need to create it!
+          password: ${{ secrets.GITHUB_TOKEN }} 
+
+      # Docker requires image names to be entirely lowercase. 
+      # This step ensures your GitHub organization/repository name won't break the build if it contains uppercase letters.
+      - name: Sanitize image name
+        run: |
+          REPO="${{ github.repository }}"
+          echo "IMAGE_NAME=${REPO,,}" >> $GITHUB_ENV
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            # Tag as 'latest' when pushing to the main branch
+            type=raw,value=latest,enable={{is_default_branch}}
+            # Tag with the exact version when pushing a git tag (e.g., v1.0.0 -> 1.0.0)
+            type=semver,pattern={{version}}
+            # Tag with the short Git SHA for every commit (great for ArgoCD tracking!)
+            type=sha
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: web
+          file: web/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
