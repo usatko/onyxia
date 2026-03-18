@@ -4,11 +4,7 @@ on:
   push:
     branches:
       - main
-      - add-slovenian-translation 
-    # Only trigger if the Dockerfile actually changes, saving build minutes
-    paths:
-      - 'web/Dockerfile'
-      - '.github/workflows/build-web-local.yaml'
+      - add-slovenian-translation
     # Trigger when you push a version tag (e.g., git tag v1.0.0 && git push --tags)
     tags:
       - 'v*.*.*' 
