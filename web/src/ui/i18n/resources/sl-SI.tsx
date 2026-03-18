@@ -15,7 +15,7 @@ export const translations: Translations<"sl"> = {
         "user-interface": "Nastavitve vmesnika",
         text1: "Moj račun",
         text2: "Dostopajte do različnih informacij o svojem računu.",
-        text3: "Upravljajte s svojimi uporabniškimi imeni, e-pošto, gesli in osebnimi žetoni za dostop, ki so neposredno povezani z vašimi storitvami.",
+        text3: "Upravljajte s svojimi uporabniškimi imeni, e-poštnimi naslovi, gesli in osebnimi žetoni za dostop, ki so neposredno povezani z vašimi storitvami.",
         "personal tokens tooltip":
             "Gesla, ki so ustvarjena za vas in imajo določeno obdobje veljavnosti",
         vault: "Vault"
@@ -80,7 +80,7 @@ export const translations: Translations<"sl"> = {
         "init script section title": "Za dostop do shrambe izven storitev datalaba",
         "init script section helper":
             "Prenesite ali kopirajte inicializacijsko skripto v programskem jeziku po vaši izbiri.",
-        "expires in": ({ howMuchTime }) => `Potreče čez ${howMuchTime}`
+        "expires in": ({ howMuchTime }) => `Poteče čez ${howMuchTime}`
     },
     AccountKubernetesTab: {
         "credentials section title": "Povezava s Kubernetes grozdom",
@@ -92,7 +92,7 @@ export const translations: Translations<"sl"> = {
                 Ta skripta omogoča uporabo ukazov kubectl ali helm na vašem lokalnem računalniku. <br />
                 Za uporabo preprosto{" "}
                 <MuiLink href={installKubectlUrl} target="_blank">
-                    namestite kubectl na svojo napravo
+                    namestite kubectl na svoj računalnik
                 </MuiLink>{" "}
                 in zaženite skripto tako, da jo kopirate in prilepite v svoj terminal.
                 <br />
@@ -180,13 +180,13 @@ export const translations: Translations<"sl"> = {
     AddCustomS3ConfigDialog: {
         "dialog title": "Nova S3 konfiguracija po meri",
         "dialog subtitle":
-            "Določite uporabniški račun storitve po meri ali se povežite z drugo storitvijo, združljivo s S3",
+            "Določite storitveni račun po meri ali se povežite z drugo storitvijo, združljivo s S3",
         cancel: "Prekliči",
         "save config": "Shrani konfiguracijo",
         "update config": "Posodobi konfiguracijo",
         "is required": "To polje je obvezno",
         "must be an url": "Ni veljaven URL",
-        "not a valid access key id": "To ni videti kot veljaven access key id",
+        "not a valid access key id": "To ne izgleda kot veljaven ID ključa za dostop (access key ID)",
         "url textField label": "URL",
         "url textField helper text": "URL S3 storitve",
         "region textField label": "AWS S3 regija",
@@ -194,10 +194,10 @@ export const translations: Translations<"sl"> = {
         "workingDirectoryPath textField label": "Pot delovnega imenika",
         "workingDirectoryPath textField helper text": (
             <>
-                Tukaj lahko določite bucket in S3 predpono objektov, ki jih imate v lasti na S3
+                Tukaj lahko določite vsebnik (bucket) in S3 predpono objektov, ki jih imate v lasti na S3
                 storitvi. <br />
                 Primer: <code>moj-bucket/moja-predpona/</code> ali samo <code>moj-bucket/</code>{" "}
-                če ste lastnik celotnega bucketa.
+                če ste lastnik celotnega vedra.
             </>
         ),
         "account credentials": "Poverilnice računa",
@@ -205,7 +205,7 @@ export const translations: Translations<"sl"> = {
         "friendlyName textField helper text":
             "To je le v pomoč pri prepoznavanju konfiguracije. Primer: Moj AWS bucket",
         "isAnonymous switch label": "Anonimen dostop",
-        "isAnonymous switch helper text": "Vklopite, če tajni ključ (secret access key) ni potreben",
+        "isAnonymous switch helper text": "Vklopite, če tajni ključ za dostop (secret access key) ni potreben",
         "accessKeyId textField label": "Access key ID",
         "accessKeyId textField helper text": "Primer: 1A2B3C4D5E6F7G8H9I0J",
         "secretAccessKey textField label": "Secret access key",
@@ -250,9 +250,9 @@ export const translations: Translations<"sl"> = {
         "enable dark mode": "Omogoči temni način",
         "dark mode helper": "Tema vmesnika z nizko svetlobo in temnim ozadjem.",
         "enable beta": "Omogoči beta način",
-        "beta mode helper": "Za napredne konfiguracije platforme in funkcije v preizkušanju.",
+        "beta mode helper": "Za napredne konfiguracije platforme in funkcije v fazi preizkušanja.",
         "enable dev mode": "Omogoči razvijalski način",
-        "dev mode helper": "Omogoči funkcije, ki so trenutno še v razvoju",
+        "dev mode helper": "Omogočite funkcije, ki so trenutno še v razvoju",
         "Enable command bar": "Ukazna vrstica",
         "Enable command bar helper": ({ imgUrl }) => (
             <>
@@ -273,7 +273,7 @@ export const translations: Translations<"sl"> = {
                 Ko zaženete storitev, je polje za geslo v zavihku varnost vnaprej izpolnjeno s tem geslom. <br />
                 Klik na ikono <Icon size="extra small" icon={getIconUrlByName("Refresh")} /> bo
                 ustvaril novo naključno geslo. Vendar upoštevajte, da se geslo ne bo posodobilo za storitve, ki že delujejo. <br />
-                Geslo storitve je tisto, ki vam ga Onyxia naroči kopirati v odložišče pred dostopom do delujoče storitve. <br />
+                Geslo storitve je tisto, ki ga Onyxia zahteva, da prekopirate v odložišče pred dostopom do delujoče storitve. <br />
                 {groupProjectName !== undefined && (
                     <>
                         Upoštevajte, da si to geslo delijo vsi člani projekta ({groupProjectName}).
@@ -290,7 +290,7 @@ export const translations: Translations<"sl"> = {
     FileExplorerEntry: {
         "page title - file explorer": "Raziskovalec datotek",
         "what this page is used for - file explorer":
-            "Tukaj lahko brskate po svojih S3 bucketih.",
+            "Tukaj lahko brskate po svojih S3 vedrih (buckets).",
         "help content": ({ accountTabLink, docHref }) => (
             <>
                 Preberite{" "}
@@ -418,7 +418,7 @@ export const translations: Translations<"sl"> = {
 
         "untitled what": ({ what }) => `neimenovan_${what}`,
         directory: "mapa",
-        "deletion dialog title": ({ deleteWhat }) => `Izbrišem ${deleteWhat} ?`,
+        "deletion dialog title": ({ deleteWhat }) => `Izbrišem ${deleteWhat}?`,
         "deletion dialog body": ({
             deleteWhat
         }) => `Izbrisali boste ${deleteWhat}.
@@ -466,8 +466,8 @@ export const translations: Translations<"sl"> = {
         "use secret dialog title": "Uporabi v storitvi",
         "use secret dialog subtitle": "Pot do skrivnosti je bila kopirana",
         "use secret dialog body": `
-                Ko zaženete storitev (RStudio, Jupyter, itd.), pojdite v zavihek 
-                skrivnosti in prilepite pot skrivnosti, ki je na voljo za ta namen. 
+                Ko zaženete storitev (RStudio, Jupyter, itd.), pojdite v zavihek
+                skrivnosti in prilepite pot skrivnosti, ki je na voljo za ta namen.
                 Vrednosti bodo vbrizgane kot okoljske spremenljivke.
             `,
         "use secret dialog ok": "Razumem"
@@ -532,8 +532,8 @@ export const translations: Translations<"sl"> = {
     },
     MaybeAcknowledgeConfigVolatilityDialog: {
         "dialog title": "Pozor, konfiguracije so hlapne",
-        "dialog body": `Ta Onyxia instanca ne uporablja nobenega mehanizma za trajno shranjevanje konfiguracij. 
-            Vse konfiguracije so shranjene v lokalni shrambi brskalnika. To pomeni, da boste v primeru brisanja podatkov 
+        "dialog body": `Ta Onyxia instanca ne uporablja nobenega mehanizma za trajno shranjevanje konfiguracij.
+            Vse konfiguracije so shranjene v lokalni shrambi brskalnika. To pomeni, da boste v primeru brisanja podatkov
             brskalnika ali uporabe drugega brskalnika izgubili vse svoje konfiguracije.`,
         "do not show next time": "Ne prikaži več tega sporočila",
         cancel: "Prekliči",
@@ -544,7 +544,7 @@ export const translations: Translations<"sl"> = {
         title: "Dobrodošli v Onyxia datalabu",
         "new user": "Prvič v datalabu?",
         login: "Prijava",
-        subtitle: "Delajte s Pythonom ali R-om, uživajte v vši procesni moči, ki jo potrebujete!",
+        subtitle: "Delajte s Pythonom ali R-om in uživajte v vsej procesni moči, ki jo potrebujete!",
         cardTitle1: "Ergonomsko okolje in storitve na zahtevo",
         cardTitle2: "Aktivna in navdušena skupnost vam stoji ob strani",
         cardTitle3: "Hitra, prilagodljiva in spletna hramba podatkov",
@@ -640,45 +640,45 @@ export const translations: Translations<"sl"> = {
                         ...(doOpensNewTab ? { target: "_blank", onClick: undefined } : {})
                     };
                 }}
-            >{`Ukazno vrstico smo zasnovali, da vam omogočimo popoln nadzor nad vašimi Kubernetes namestitvami. 
+            >{`Ukazno vrstico smo zasnovali, da vam omogočimo popoln nadzor nad vašimi Kubernetes namestitvami.
 Tukaj je tisto, kar morate vedeti:
 
-#### Kaj so ti Helm ukazi?  
+#### Kaj so ti ukazi Helm?
 
-Ti ukazi so natančni Helm ukazi, ki jih bo Onyxia API izvedel v vašem imenu v vašem Kubernetes imenskem prostoru.  
-To vam omogoča, da veste, kaj se dogaja v ozadju, ko komunicirate z vmesnikom.  
+Ti ukazi so natančni Helm ukazi, ki jih bo Onyxia API izvedel v vašem imenu v vašem Kubernetes imenskem prostoru.
+To vam omogoča, da veste, kaj se dogaja v ozadju, ko komunicirate z vmesnikom.
 
-#### Posodobitve v realnem času  
+#### Posodobitve v realnem času
 
-Ko komunicirate z vmesnikom, se bodo Helm ukazi samodejno posodobili in odražali vaša dejanja.  
+Ko komunicirate z vmesnikom, se bodo Helm ukazi samodejno posodobili in odražali vaša dejanja.
 
-#### Zakaj bi me to zanimalo?  
+#### Zakaj bi me to zanimalo?
 
-- **Transparentnost:** Verjamemo, da imate pravico vedeti, katera dejanja se izvajajo v vašem okolju.  
-- **Učenje:** Razumevanje teh ukazov vam nudi vpogled v Kubernetes in Helm ter poglablja vaše znanje.  
-- **Ročna izvedba:** Te ukaze lahko kopirate in prilepite v terminal s pravicami za pisanje v Kubernetes, kar vam omogoča ročni zagon storitve.  
+- **Transparentnost:** Verjamemo, da imate pravico vedeti, katera dejanja se izvajajo v vašem okolju.
+- **Učenje:** Razumevanje teh ukazov vam nudi vpogled v Kubernetes in Helm ter poglablja vaše znanje.
+- **Ročna izvedba:** Te ukaze lahko kopirate in prilepite v terminal s pravicami za pisanje v Kubernetes, kar vam omogoča ročni zagon storitve.
 
-#### Kako lahko te ukaze izvedem ročno?  
+#### Kako lahko te ukaze izvedem ročno?
 
-${k8CredentialsHref === undefined ? "" : "Obstajata dva načina za izvedbo teh ukazov:  "}  
+${k8CredentialsHref === undefined ? "" : "Obstajata dva načina za izvedbo teh ukazov:  "}
 
 ${
     k8CredentialsHref === undefined
         ? ""
         : `
-- **Lokalni terminal:** Pojdite na [\`Moj račun -> zavihek Kubernetes\`](${k8CredentialsHref}).  
-  Tukaj boste našli poverilnice, ki vam omogočajo izvajanje ukazov v vašem Kubernetes imenskem prostoru iz lokalnega terminala.  
+- **Lokalni terminal:** Pojdite na [\`Moj račun -> zavihek Kubernetes\`](${k8CredentialsHref}).
+  Tu boste našli poverilnice, ki vam omogočajo izvajanje ukazov v vašem Kubernetes imenskem prostoru iz lokalnega terminala.
 `
 }
 
-- Če ta instanca Onyxie vključuje storitvi VSCode ali Jupyter, lahko odprete terminal znotraj teh storitev in tam zaženete ukaze.  
-  Za konstruktivne ali destruktivne ukaze boste morali zagnati svojo storitev s Kubernetes vlogo \`admin\` ali \`edit\`.  
+- Če ta instanca Onyxie vključuje storitvi VSCode ali Jupyter, lahko odprete terminal znotraj teh storitev in tam zaženete ukaze.
+  Za konstruktivne ali destruktivne ukaze boste morali zagnati svojo storitev s Kubernetes vlogo \`admin\` ali \`edit\`.
 
-Z ročno izvedbo ukaza boste storitev še vedno videli na strani [\`Moje storitve\`](${myServicesHref}), kot če bi bila zagnana prek vmesnika.  
+Z ročno izvedbo ukaza boste storitev še vedno videli na strani [\`Moje storitve\`](${myServicesHref}), kot če bi bila zagnana prek vmesnika.
 
 Ukazno vrstico lahko onemogočite v zavihku [\`Moj račun -> Nastavitve vmesnika\`](${interfacePreferenceHref}).
 
-Raziskujte in prevzemite nadzor nad svojimi Kubernetes namestitvami!  
+Raziskujte in prevzemite nadzor nad svojimi Kubernetes namestitvami!
         `}</Markdown>
         ),
         form: "Obrazec",
@@ -699,7 +699,7 @@ Raziskujte in prevzemite nadzor nad svojimi Kubernetes namestitvami!
             "Funkcija samodejnega zagona je na tej instanci onemogočena",
         "auto launch disabled dialog body": (
             <>
-                <b>OPOZORILO</b>: Nekdo vas morda poskuša zavesti v zagon storitve, 
+                <b>OPOZORILO</b>: Nekdo vas morda poskuša pretentati v zagon storitve,
                 ki bi lahko ogrozila celovitost vašega imenskega prostora.
                 <br />
                 Pred zagonom natančno preglejte konfiguracijo storitve.
@@ -721,11 +721,11 @@ Raziskujte in prevzemite nadzor nad svojimi Kubernetes namestitvami!
     ConfigurationTopLevelGroup: {
         miscellaneous: "Razno",
         "Configuration that applies to all charts":
-            "Konfiguracija, ki velja za vse grafe/charts",
+            "Konfiguracija, ki velja za vse Helm chart-e",
         "Top level configuration values": "Vrednosti konfiguracije na najvišji ravni"
     },
     YamlCodeBlockFormField: {
-        "not an array": "Pričakovan je niz (array)",
+        "not an array": "Pričakovan je seznam (array)",
         "not an object": "Pričakovan je objekt",
         "not valid yaml": "Neveljaven YAML/JSON"
     },
@@ -739,7 +739,7 @@ Raziskujte in prevzemite nadzor nad svojimi Kubernetes namestitvami!
     AutoInjectSwitch: {
         tooltip: ({ isAutoInjected }) => (
             <>
-                Če je omogočeno, bo ta konfiguracija samodejno vbrizgana v vaše storitve. 
+                Če je omogočeno, bo ta konfiguracija samodejno vbrizgana v vaše storitve.
                 Še vedno jo lahko ročno dodate pozneje ob zagonu storitve, tudi če je to onemogočeno.
                 <br />
                 <br />
@@ -775,10 +775,10 @@ Raziskujte in prevzemite nadzor nad svojimi Kubernetes namestitvami!
         "copy auto launch url": "Kopiraj URL za samodejni zagon",
         "copy auto launch url helper": ({
             chartName
-        }) => `Kopiraj URL, ki bo kateremukoli uporabniku te instance omogočil 
+        }) => `Kopiraj URL, ki bo kateremukoli uporabniku te instance omogočil
             zagon ${chartName} s to konfiguracijo v njihovem imenskem prostoru`,
         "share the service": "Deli storitev",
-        "share the service - explain": "Omogoči dostop do storitve članom skupine",
+        "share the service - explain": "Omogočite dostop do storitve članom skupine",
         "restore all default": "Obnovi privzete konfiguracije",
         "bookmark button": ({ isBookmarked }) =>
             `${isBookmarked ? "Izbriši" : "Shrani"} konfiguracijo`,
@@ -881,7 +881,7 @@ Raziskujte in prevzemite nadzor nad svojimi Kubernetes namestitvami!
             focusColor
         }) => (
             <>
-                To storitev si s člani projekta <span style={{ color: focusColor }}>{projectName}</span> deli uporabnik <span style={{ color: focusColor }}>{ownerUsername}</span>.
+                To storitev z ostalimi člani projekta <span style={{ color: focusColor }}>{projectName}</span> deli uporabnik <span style={{ color: focusColor }}>{ownerUsername}</span>.
             </>
         ),
         "share tooltip - belong to you, shared": ({ projectName, focusColor }) => (
@@ -1118,8 +1118,10 @@ Raziskujte in prevzemite nadzor nad svojimi Kubernetes namestitvami!
     CustomDataGrid: {
         "empty directory": "Ta imenik je prazen",
         "label rows count": ({ count }) => {
-            const plural = count > 1 ? "predmetov" : "predmet";
-            return `${count} izbran ${plural}`;
+            if (count === 1) return "1 izbran predmet";
+            if (count === 2) return "2 izbrana predmeta";
+            if (count === 3 || count === 4) return `${count} izbrani predmeti`;
+            return `${count} izbranih predmetov`;
         },
         "label rows per page": "Predmetov na stran"
     },
