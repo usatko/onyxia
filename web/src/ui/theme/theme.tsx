@@ -23,7 +23,7 @@ const {
             // we don't want that here so we fix the windowInnerWidth.
             windowInnerWidth: targetWindowInnerWidth
         }),
-        fontFamily: `'${env.FONT.fontFamily}'`
+        fontFamily: `'${env.FONT.fontFamily}', 'Roboto', sans-serif`
     }),
     palette: getPalette,
     splashScreenParams: isStorybook
